@@ -107,6 +107,10 @@ public class TaskList implements Iterable<Task> {
         return tasks.stream();
     }
 
+    public Task get(int index) {
+        return tasks.get(index);
+    }
+
     /**
      * Sorts the deadlines in the task list.
      */

@@ -1,6 +1,7 @@
 package duke.ui;
 
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import duke.TaskList;
 import duke.task.Task;
@@ -76,8 +77,8 @@ public class Ui {
      * @param tasks The list of tasks to display.
      */
     public String showTaskList(TaskList tasks) {
-        String message = tasks.stream()
-                .map(Task::toString)
+        String message = IntStream.range(0, tasks.getListSize())
+                .mapToObj(i -> (i + 1) + ". " + tasks.get(i).toString())
                 .collect(Collectors.joining("\n"));
         return "Here are the tasks in your list:\n" + message;
     }
